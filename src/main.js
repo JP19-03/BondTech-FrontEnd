@@ -8,9 +8,12 @@ import Material from "@primeuix/themes/material";
 import {definePreset} from "@primeuix/themes";
 
 import 'primeicons/primeicons.css'
+import Button from "primevue/button"
 import DialogService from "primevue/dialogservice"
-import ToastService from "primevue/toastservice"
+import Menu from "primevue/menu"
 import SelectButton from "primevue/selectbutton"
+import ToastService from "primevue/toastservice"
+import ToolbarComponent from "./public/components/toolbar.component.vue";
 
 //import router from "router/index.js"
 
@@ -53,6 +56,9 @@ app.use(PrimeVue, {
     .use(DialogService)
     .use(ToastService);
 
-app.component('pv-select-button', SelectButton)
+app.component('pv-button', Button)
+    .component('pv-menu', Menu)
+    .component('pv-select-button', SelectButton)
+    .component('pv-toolbar', ToolbarComponent)
 
 app.mount('#app')
