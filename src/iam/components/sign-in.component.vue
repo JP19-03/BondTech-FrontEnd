@@ -42,6 +42,7 @@ export default {
               life: 2000,
             });
             this.resetForm();
+            localStorage.setItem("userId", response.data.id);
             setTimeout(() => {
               //this.$router.push("/home");
             }, 4000);
@@ -97,8 +98,8 @@ export default {
                    class="w-full bg-primary hover:bg-primary-emphasis text-white uppercase font-bold" raised/>
 
         <p class="text-center mt-4 bg-none">
-          Have an Account?
-          <router-link to="/sign-in" class="text-primary font-bold">Log In</router-link>
+          Don't have an account?
+          <router-link to="/sign-up" class="text-primary font-bold">Sing Up</router-link>
         </p>
 
       </form>
