@@ -43,7 +43,7 @@ export default {
 <template>
   <pv-toolbar class="bg-primary">
     <template #start>
-      <img src="../../assets/images/bontech_logo.png" alt="Bondtech Logo" class="h-[250px] object-fill" />
+      <img src="../../assets/images/bontech_logo.png" alt="Bondtech Logo" class="h-[80px] object-fill" />
     </template>
     <template #center>
       <router-link :to="{ name: 'home' }"

@@ -18,7 +18,7 @@ import InputText from "primevue/inputtext"
 import Menu from "primevue/menu"
 import SelectButton from "primevue/selectbutton"
 import ToastService from "primevue/toastservice"
-import ToolbarComponent from "./public/components/toolbar.component.vue";
+import Toolbar from "primevue/toolbar"
 
 import router from "./router/index.js"
 
@@ -69,6 +69,6 @@ app.component('pv-button', Button)
     .component('pv-input-text', InputText)
     .component('pv-menu', Menu)
     .component('pv-select-button', SelectButton)
-    .component('pv-toolbar', ToolbarComponent)
+    .component('pv-toolbar', Toolbar)
 
 app.mount('#app')
