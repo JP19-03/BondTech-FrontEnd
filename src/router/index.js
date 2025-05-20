@@ -16,6 +16,16 @@ const router = createRouter({
             name: 'sign-in',
             component: SignInComponent,
             meta: {title: 'Sign In', layout: 'AuthenticationLayoutComponent'},
+        },
+        {
+            path: '/',
+            redirect: () => {
+                const userId = localStorage.getItem('userId');
+                if (!userId) {
+                    return {name: 'sign-in'};
+                }
+                return {name: 'home'};
+            }
         }
     ]
 });
