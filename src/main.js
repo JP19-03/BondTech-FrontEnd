@@ -9,19 +9,24 @@ import {definePreset} from "@primeuix/themes";
 
 import 'primeicons/primeicons.css'
 import Button from "primevue/button"
+import Column from "primevue/column";
+import DataTable from "primevue/datatable"
 import DialogService from "primevue/dialogservice"
+import IconField from "primevue/iconfield"
+import InputIcon from "primevue/inputicon"
+import InputText from "primevue/inputtext"
 import Menu from "primevue/menu"
 import SelectButton from "primevue/selectbutton"
 import ToastService from "primevue/toastservice"
 import ToolbarComponent from "./public/components/toolbar.component.vue";
 
-//import router from "router/index.js"
+import router from "./router/index.js"
 
 const app = createApp(App)
 
 app.use(i18n);
 
-//app.use(router);
+app.use(router);
 
 const MyPreset = definePreset(Material, {
     semantic: {
@@ -57,6 +62,11 @@ app.use(PrimeVue, {
     .use(ToastService);
 
 app.component('pv-button', Button)
+    .component('pv-column', Column)
+    .component('pv-data-table', DataTable)
+    .component('pv-icon-field', IconField)
+    .component('pv-input-icon', InputIcon)
+    .component('pv-input-text', InputText)
     .component('pv-menu', Menu)
     .component('pv-select-button', SelectButton)
     .component('pv-toolbar', ToolbarComponent)
