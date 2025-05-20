@@ -2,8 +2,8 @@ import http from "../../shared/services/http-common.js";
 
 export class AuthenticationService {
 
-    signIn(signInRequest) {
-        return http.post("/authentication/sign-in", signInRequest);
+    signIn(username, password) {
+        return http.post("/authentication/sign-in?username=" + username + "&password=" + password);
     }
 
    signUp(signUpRequest) {
