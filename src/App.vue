@@ -16,6 +16,7 @@ export default {
   <component :is="layout">
     <router-view/>
   </component>
+  <pv-toast />
 </template>
 
 <style scoped>
