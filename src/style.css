@@ -1,2 +1,27 @@
 @import "tailwindcss";
 @import "tailwindcss-primeui";
+
+:root {
+    --font-family: 'Roboto', sans-serif;
+}
+
+* {
+    font-family: var(--font-family), serif;
+}
+
+body {
+    background-color: #F4F4F4;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, p {
+    margin: 0;
+}
