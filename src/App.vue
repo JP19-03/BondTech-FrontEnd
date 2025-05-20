@@ -1,12 +1,13 @@
 <script>
 import EmptyLayoutComponent from "./shared/layouts/empty-layout.component.vue";
+import AuthenticationLayoutComponent from "./iam/layouts/authentication-layout.component.vue";
 
 export default {
   name: "BondTech App",
-  components: { EmptyLayoutComponent },
+  components: { EmptyLayoutComponent, AuthenticationLayoutComponent },
   computed: {
     layout() {
-      return this.$route.meta.layout || 'ParkingManagementLayout' || 'EmptyLayout' || 'AuthLayout';
+      return this.$route.meta.layout || 'AuthenticationLayoutComponent' || 'EmptyLayoutComponent';
     }
   },
 }
