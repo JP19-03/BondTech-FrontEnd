@@ -10,15 +10,20 @@ import {definePreset} from "@primeuix/themes";
 import 'primeicons/primeicons.css'
 import DialogService from "primevue/dialogservice"
 import ToastService from "primevue/toastservice"
+import Button from "primevue/button"
+import FloatLabel from "primevue/floatlabel"
+import InputText from "primevue/inputtext"
+import Password from "primevue/password"
 import SelectButton from "primevue/selectbutton"
+import Toast from "primevue/toast"
 
-//import router from "router/index.js"
+import router from "./router/index.js";
 
 const app = createApp(App)
 
 app.use(i18n);
 
-//app.use(router);
+app.use(router);
 
 const MyPreset = definePreset(Material, {
     semantic: {
@@ -53,6 +58,11 @@ app.use(PrimeVue, {
     .use(DialogService)
     .use(ToastService);
 
-app.component('pv-select-button', SelectButton)
+app.component('pv-button', Button)
+    .component('pv-float-label', FloatLabel)
+    .component('pv-input-text', InputText)
+    .component('pv-password', Password)
+    .component('pv-select-button', SelectButton)
+    .component('pv-toast', Toast)
 
 app.mount('#app')
