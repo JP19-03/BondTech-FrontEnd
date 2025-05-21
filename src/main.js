@@ -9,6 +9,7 @@ import {definePreset} from "@primeuix/themes";
 
 import 'primeicons/primeicons.css'
 import Button from "primevue/button"
+import Chart from "primevue/chart";
 import Column from "primevue/column";
 import DataTable from "primevue/datatable"
 import DialogService from "primevue/dialogservice"
@@ -62,6 +63,7 @@ app.use(PrimeVue, {
     .use(ToastService);
 
 app.component('pv-button', Button)
+    .component('pv-chart', Chart)
     .component('pv-column', Column)
     .component('pv-data-table', DataTable)
     .component('pv-icon-field', IconField)
