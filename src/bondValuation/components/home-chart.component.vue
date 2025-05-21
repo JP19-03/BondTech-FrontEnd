@@ -113,7 +113,7 @@ export default {
     data: {
       immediate: true,
       handler() {
-        this.chartData = this.setChartData();
+        this.chartData = this.setChartDataMock();
         this.chartOptions = this.setChartOptions();
       }
     }
