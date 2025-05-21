@@ -2,6 +2,7 @@ export class CorporateBond {
     constructor({
         id = 0,
         userId = 0,
+        name = "",
         faceValue = 0,
         marketValue = 0,
         numberOfYears = 0,
@@ -24,6 +25,7 @@ export class CorporateBond {
                 }) {
         this.id = id;
         this.userId = userId;
+        this.name = name;
         this.faceValue = faceValue;
         this.marketValue = marketValue;
         this.numberOfYears = numberOfYears;
