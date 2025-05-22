@@ -15,7 +15,7 @@ export class CorporateBond {
         incomeTaxRate = 0,
         emissionDate = "",
         premiumRate = 0,
-        structuringRate = 0,
+        structuringFeeRate = 0,
         placementFeeRate = 0,
         flotationFeeRate = 0,
         cavaliFeeRate = 0,
@@ -38,7 +38,7 @@ export class CorporateBond {
         this.incomeTaxRate = incomeTaxRate;
         this.emissionDate = emissionDate;
         this.premiumRate = premiumRate;
-        this.structuringRate = structuringRate;
+        this.structuringFeeRate = structuringFeeRate;
         this.placementFeeRate = placementFeeRate;
         this.flotationFeeRate = flotationFeeRate;
         this.cavaliFeeRate = cavaliFeeRate;
