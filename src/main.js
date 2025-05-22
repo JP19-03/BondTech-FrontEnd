@@ -10,14 +10,22 @@ import {definePreset} from "@primeuix/themes";
 import 'primeicons/primeicons.css'
 import Button from "primevue/button"
 import Chart from "primevue/chart";
+import Checkbox from "primevue/checkbox"
 import Column from "primevue/column";
 import DataTable from "primevue/datatable"
+import DatePicker from "primevue/datepicker"
+import Dialog from "primevue/dialog"
 import DialogService from "primevue/dialogservice"
+import FloatLabel from "primevue/floatlabel"
 import IconField from "primevue/iconfield"
+import IftaLabel from 'primevue/iftalabel';
 import InputIcon from "primevue/inputicon"
+import InputNumber from "primevue/inputnumber"
 import InputText from "primevue/inputtext"
 import Menu from "primevue/menu"
+import Select from "primevue/select"
 import SelectButton from "primevue/selectbutton"
+import Toast from "primevue/toast"
 import ToastService from "primevue/toastservice"
 import Toolbar from "primevue/toolbar"
 
@@ -64,13 +72,21 @@ app.use(PrimeVue, {
 
 app.component('pv-button', Button)
     .component('pv-chart', Chart)
+    .component('pv-checkbox', Checkbox)
     .component('pv-column', Column)
     .component('pv-data-table', DataTable)
+    .component('pv-date-picker', DatePicker)
+    .component('pv-dialog', Dialog)
+    .component('pv-float-label', FloatLabel)
     .component('pv-icon-field', IconField)
+    .component('pv-ifta-label', IftaLabel)
     .component('pv-input-icon', InputIcon)
+    .component('pv-input-number', InputNumber)
     .component('pv-input-text', InputText)
     .component('pv-menu', Menu)
+    .component('pv-select', Select)
     .component('pv-select-button', SelectButton)
+    .component('pv-toast', Toast)
     .component('pv-toolbar', Toolbar)
 
 app.mount('#app')
