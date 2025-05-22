@@ -59,7 +59,6 @@ export default {
 </script>
 
 <template>
-  <ToolbarComponent/>
   <div class="flex flex-col justify-center p-6 gap-4">
     <h1 class="text-4xl font-bold text-black">Registered Bonds</h1>
     <bond-results-table :bond-results="results" @refresh="handleRefresh" class="bg-white"/>
