@@ -10,7 +10,11 @@ export default {
     id: {
       type: String,
       required: true
-    }
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
   },
   computed: {
     internalValue: {
@@ -32,6 +36,7 @@ export default {
         :id="id"
         v-model="internalValue"
         variant="filled"
+        :disabled="disabled"
     />
     <label :for="id" style="font-size: 0.7rem">{{ label }}</label>
   </pv-ifta-label>

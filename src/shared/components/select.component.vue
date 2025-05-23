@@ -40,13 +40,16 @@ export default {
 
 <template>
   <div class="w-full">
-    <pv-select
-      v-model="internalValue"
-      :options="options"
-      :placeholder="placeholder"
-      class="w-full justify-center"
-      :id="id"
-    />
+    <pv-ifta-label>
+      <pv-select
+          v-model="internalValue"
+          :options="options"
+          :placeholder="placeholder"
+          class="w-full h-[3rem] justify-center"
+          :id="id"
+      />
+      <label :for="id" style="font-size: 0.7rem">{{ placeholder }}</label>
+    </pv-ifta-label>
   </div>
 </template>
 
