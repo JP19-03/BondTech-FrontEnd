@@ -16,6 +16,7 @@ import DataTable from "primevue/datatable"
 import DatePicker from "primevue/datepicker"
 import Dialog from "primevue/dialog"
 import DialogService from "primevue/dialogservice"
+import Password from "primevue/password"
 import FloatLabel from "primevue/floatlabel"
 import IconField from "primevue/iconfield"
 import IftaLabel from 'primevue/iftalabel';
@@ -84,6 +85,7 @@ app.component('pv-button', Button)
     .component('pv-input-number', InputNumber)
     .component('pv-input-text', InputText)
     .component('pv-menu', Menu)
+    .component('pv-password', Password)
     .component('pv-select', Select)
     .component('pv-select-button', SelectButton)
     .component('pv-toast', Toast)
