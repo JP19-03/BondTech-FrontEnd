@@ -128,8 +128,8 @@ export default {
           });
           this.resetForm();
           setTimeout(() => {
-            this.$router.push("/home");
-          }, 4000);
+            this.$router.push({name: 'bond-result', params: {id: response.data.id}});
+          }, 2000);
         }
       } catch (error) {
         this.$toast.add({
@@ -152,7 +152,7 @@ export default {
           });
           this.resetForm();
           setTimeout(() => {
-            this.$router.push("/home");
+            this.$router.push({name: 'bond-result', params: {id: response.data.id}});
           }, 3000);
         }
       } catch (error) {
