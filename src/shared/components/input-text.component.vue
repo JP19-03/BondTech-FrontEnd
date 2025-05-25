@@ -43,4 +43,10 @@ export default {
 </template>
 
 <style scoped>
+:deep(.p-inputtext:disabled) {
+  background: rgba(255, 193, 7, 0.2) !important;
+  color: #000 !important;
+  border-color: black !important;
+  cursor: not-allowed !important;
+}
 </style>
