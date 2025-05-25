@@ -106,14 +106,14 @@ export default {
   },
   mounted() {
     console.log(this.data);
-    this.chartData = this.setChartDataMock();
+    this.chartData = this.setChartData();
     this.chartOptions = this.setChartOptions();
   },
   watch: {
     data: {
       immediate: true,
       handler() {
-        this.chartData = this.setChartDataMock();
+        this.chartData = this.setChartData();
         this.chartOptions = this.setChartOptions();
       }
     }
