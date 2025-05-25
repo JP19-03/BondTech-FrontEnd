@@ -25,3 +25,15 @@ a {
 h1, h2, p {
     margin: 0;
 }
+
+.myInputText {
+    border-color: #94a3b8;
+    box-shadow: none;
+    outline-offset: -2px;
+}
+
+.myInputText:focus {
+    box-shadow: 0 0 0 1px #FFC107;
+    border-color: #FFC107;
+    outline: none;
+}
