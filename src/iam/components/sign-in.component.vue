@@ -59,7 +59,7 @@ export default {
           this.$toast.add({
             severity: "error",
             summary: "Error",
-            detail: "An error occurred. Please try again.",
+            detail: "Invalid credentials.",
             life: 2000,
           });
         }
