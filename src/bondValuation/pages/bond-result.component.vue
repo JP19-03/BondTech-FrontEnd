@@ -105,7 +105,7 @@ export default {
       }
     }
   },
-  async mounted() {
+  async created() {
     const bondId = this.$route.params.id;
     if (bondId) {
       await this.fetchCorporateBond(bondId);
@@ -128,7 +128,7 @@ export default {
 
 <template>
   <div class="flex flex-col justify-center items-center gap-3 p-2 ">
-    <h1 class="text-3xl font-bold">Results</h1>
+    <h1 class="text-3xl font-bold">{{ $t('bondResult.results') }}: {{ bondResult.name }}</h1>
 
     <bond-result-detail
         v-if="bondResult"

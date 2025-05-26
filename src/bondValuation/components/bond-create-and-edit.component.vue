@@ -213,12 +213,12 @@ export default {
 
 <template>
   <div class="flex flex-col justify-center items-center gap-2 p-4">
-    <h1 class="text-3xl font-bold">{{ bond.id ? 'Edit Bond' : 'Create Bond' }}</h1>
+    <h1 class="text-3xl font-bold">{{ bond.id ? $t('corporateBond.editBond') : $t('corporateBond.createBond') }}</h1>
 
     <div class="border rounded-sm shadow-md/20 bg-white w-full lg:w-4xl xl:w-5xl">
       <div class="flex justify-between items-center flex-col md:flex-row md:items-start">
         <div class="flex flex-col justify-between items-center gap-4 w-full h-full p-4">
-          <h2 class="text-xl font-bold text-center">Bond Data</h2>
+          <h2 class="text-xl font-bold text-center">{{ $t('corporateBond.bondData') }}</h2>
 
           <!-- Currency and Name -->
           <div class="grid grid-cols-1 gap-2 md:grid-cols-2  w-full">
@@ -229,7 +229,8 @@ export default {
               <SelectButtonWrapper v-model="currency" :options="options" id="currencySelect"/>
             </div>
             <div>
-              <InputNumberComponent v-model="bond.exchangeRate" label="Exchange Rate" :min="0.0000001"
+              <InputNumberComponent v-model="bond.exchangeRate" :label="$t('corporateBond.exchangeRate')"
+                                    :min="0.0000001"
                                     :min-fraction-digits="7" id="bondExchangeRate"/>
               <small v-if="submitted && !bond.exchangeRate" class="text-red-500">Exchange Rate is required.</small>
             </div>
@@ -237,20 +238,22 @@ export default {
 
           <!-- Bond Name -->
           <div class="w-full">
-            <InputTextComponent v-model="bond.name" label="Name" id="bondName"/>
+            <InputTextComponent v-model="bond.name" :label="$t('corporateBond.name')" id="bondName"/>
             <small v-if="submitted && !bond.name" class="text-red-500">Name is required.</small>
           </div>
 
           <!-- Face Value and Market Value -->
           <div class="grid grid-cols-1 gap-2 md:grid-cols-2  w-full">
             <div>
-              <InputNumberComponent v-model="bond.faceValue" label="Face Value" mode="currency" :currency="currency"
+              <InputNumberComponent v-model="bond.faceValue" :label="$t('corporateBond.faceValue')" mode="currency"
+                                    :currency="currency"
                                     id="bondFaceValue"/>
               <small v-if="submitted && !bond.faceValue" class="text-red-500">Face Value is required.</small>
             </div>
 
             <div>
-              <InputNumberComponent v-model="bond.marketValue" label="Market Value" mode="currency" :currency="currency"
+              <InputNumberComponent v-model="bond.marketValue" :label="$t('corporateBond.marketValue')" mode="currency"
+                                    :currency="currency"
                                     id="bondMarketValue"/>
               <small v-if="submitted && !bond.marketValue" class="text-red-500">Market Value is required.</small>
               <small v-if="submitted && bond.marketValue <= bond.faceValue" class="text-red-500">
@@ -262,19 +265,21 @@ export default {
           <!-- Number of Years and Days Per Year -->
           <div class="grid grid-cols-1 gap-2 md:grid-cols-2 w-full">
             <div v-if="bond.id">
-              <InputTextComponent v-model="numberOfYearsString" label="Number of Years" :disabled="true"
+              <InputTextComponent v-model="numberOfYearsString" :label="$t('corporateBond.numberOfYears')"
+                                  :disabled="true"
                                   id="bondNumberOfYears"/>
             </div>
 
             <div v-else>
-              <InputNumberComponent v-model="bond.numberOfYears" label="Number of Years" :min="1" :showButtons="true"
+              <InputNumberComponent v-model="bond.numberOfYears" :label="$t('corporateBond.numberOfYears')" :min="1"
+                                    :showButtons="true"
                                     id="bondNumberOfYears"/>
               <small v-if="submitted && !bond.numberOfYears" class="text-red-500">Number of Years is required.</small>
             </div>
 
             <div>
               <SelectComponent :options="daysPerYearsOptions" v-model="bond.daysPerYear"
-                               placeholder="Select Days Per Year" id="daysPerYearSelect"/>
+                               :placeholder="$t('corporateBond.daysPerYear')" id="daysPerYearSelect"/>
               <small v-if="submitted && !bond.marketValue" class="text-red-500">Market Value is required.</small>
             </div>
           </div>
@@ -283,14 +288,14 @@ export default {
           <div class="grid grid-cols-1 gap-2 md:grid-cols-2 w-full">
             <div>
               <SelectComponent :options="couponFrequencyOptions" v-model="bond.couponFrequency"
-                               placeholder="Select Coupon Frequency" id="couponFrequencySelect"/>
+                               :placeholder="$t('corporateBond.couponFrequency')" id="couponFrequencySelect"/>
               <small v-if="submitted && !bond.couponFrequency" class="text-red-500">Coupon Frequency is
                 required.</small>
             </div>
 
             <div>
               <SelectComponent :options="['EFECTIVA', 'NOMINAL']" v-model="bond.interestRateType"
-                               placeholder="Select Interest Rate Type" id="interestRateTypeSelect"/>
+                               :placeholder="$t('corporateBond.interestRateType')" id="interestRateTypeSelect"/>
               <small v-if="submitted && !bond.interestRateType" class="text-red-500">
                 Interest Rate Type is required.
               </small>
@@ -301,7 +306,7 @@ export default {
           <!-- Capitalization Period -->
           <div v-if="bond.interestRateType === 'NOMINAL'" class="w-full">
             <SelectComponent :options="capitalizationOptions" v-model="bond.capitalizationPeriod"
-                             placeholder="Select Capitalization Period" id="capitalizationPeriodSelect"/>
+                             :placeholder="$t('corporateBond.capitalizationPeriod')" id="capitalizationPeriodSelect"/>
             <small v-if="submitted && !bond.capitalizationPeriod" class="text-red-500">
               Capitalization Period is required.
             </small>
@@ -310,13 +315,15 @@ export default {
           <!-- Interest Rate and Annual Discount Rate -->
           <div class="grid grid-cols-1 gap-2 md:grid-cols-2 w-full">
             <div>
-              <InputNumberComponent v-model="bond.interestRate" label="Interest Rate" :min="0.0000001"
+              <InputNumberComponent v-model="bond.interestRate" :label="$t('corporateBond.interestRate')"
+                                    :min="0.0000001"
                                     :min-fraction-digits="7" suffix=" %" id="bondInterestRate"/>
               <small v-if="submitted && !bond.interestRate" class="text-red-500">Interest Rate is required.</small>
             </div>
 
             <div>
-              <InputNumberComponent v-model="bond.annualDiscountRate" label="Annual Discount Rate" :min="0.0000001"
+              <InputNumberComponent v-model="bond.annualDiscountRate" :label="$t('corporateBond.annualDiscountRate')"
+                                    :min="0.0000001"
                                     :min-fraction-digits="7" suffix=" %" id="bondAnnualDiscountRate"/>
               <small v-if="submitted && !bond.annualDiscountRate" class="text-red-500">
                 Annual Discount Rate is required.
@@ -327,7 +334,8 @@ export default {
           <!-- Income Rate and Emission Date -->
           <div class="grid grid-cols-1 gap-2 md:grid-cols-2 w-full">
             <div>
-              <InputNumberComponent v-model="bond.incomeTaxRate" label="Income Rate" :min="0.0000001"
+              <InputNumberComponent v-model="bond.incomeTaxRate" :label="$t('corporateBond.incomeTaxRate')"
+                                    :min="0.0000001"
                                     :min-fraction-digits="7" suffix=" %" id="bondIncomeRate"/>
               <small v-if="submitted && !bond.incomeTaxRate" class="text-red-500">
                 Income Rate is required.
@@ -335,7 +343,8 @@ export default {
             </div>
 
             <div>
-              <pv-date-picker v-model="bond.emissionDate" label="Emission Date" id="bondEmissionDate" class="w-full"
+              <pv-date-picker v-model="bond.emissionDate" :placeholder="$t('corporateBond.emissionDate')"
+                              id="bondEmissionDate" class="w-full"
                               showIcon fluid :showOnFocus="false" :minDate="minDate" :maxDate="maxDate"
                               :manualInput="false" dateFormat="yy-mm-dd"
               />
@@ -347,12 +356,13 @@ export default {
           <div class="grid grid-cols-1 gap-2 md:grid-cols-2 w-full">
             <div>
               <SelectComponent :options="graceTypeOptions" v-model="bond.graceType"
-                               placeholder="Select Grace Type" id="graceTypeSelect"/>
+                               :placeholder="$t('corporateBond.graceType')" id="graceTypeSelect"/>
               <small v-if="submitted && !bond.graceType" class="text-red-500">Grace Type is required.</small>
             </div>
 
             <div v-if="bond.graceType !== 'NONE'">
-              <InputNumberComponent v-model="bond.numberOfGracePeriods" label="Grace Periods" :min="0"
+              <InputNumberComponent v-model="bond.numberOfGracePeriods"
+                                    :label="$t('corporateBond.numberOfGracePeriods')" :min="0"
                                     :showButtons="true"
                                     id="bondGracePeriods"/>
               <small v-if="submitted && !bond.numberOfGracePeriods" class="text-red-500">Grace Periods is
@@ -363,10 +373,10 @@ export default {
         </div>
 
         <div class="flex flex-col justify-between items-center gap-4 w-full md:w-1/2 h-full p-4">
-          <h2 class="text-xl font-bold text-center">Initial Cost Data</h2>
+          <h2 class="text-xl font-bold text-center">{{ $t('corporateBond.initialCostData') }}</h2>
 
           <div class="w-full">
-            <InputNumberComponent v-model="bond.premiumRate" label="Premium Rate" :min="0.0000001"
+            <InputNumberComponent v-model="bond.premiumRate" :label="$t('corporateBond.premiumRate')" :min="0.0000001"
                                   :min-fraction-digits="7" suffix=" %" id="bondPremiumRate"/>
             <small v-if="submitted && !bond.premiumRate" class="text-red-500">
               Premium Rate is required.
@@ -374,7 +384,7 @@ export default {
           </div>
 
           <div class="w-full">
-            <InputNumberComponent v-model="bond.structuringFeeRate" label="Structuring Rate" :min="0.0000001"
+            <InputNumberComponent v-model="bond.structuringFeeRate" :label="$t('corporateBond.structuringFeeRate')" :min="0.0000001"
                                   :min-fraction-digits="7" suffix=" %" id="bondStructuringRate"/>
             <small v-if="submitted && !bond.structuringFeeRate" class="text-red-500">
               Structuring Rate is required.
@@ -382,7 +392,7 @@ export default {
           </div>
 
           <div class="w-full">
-            <InputNumberComponent v-model="bond.placementFeeRate" label="Placement Fee Rate" :min="0.0000001"
+            <InputNumberComponent v-model="bond.placementFeeRate" :label="$t('corporateBond.placementFeeRate')" :min="0.0000001"
                                   :min-fraction-digits="7" suffix=" %" id="bondPlacementFeeRate"/>
             <small v-if="submitted && !bond.placementFeeRate" class="text-red-500">
               Placement Fee Rate is required.
@@ -390,7 +400,7 @@ export default {
           </div>
 
           <div class="w-full">
-            <InputNumberComponent v-model="bond.flotationFeeRate" label="Flotation Fee Rate" :min="0.0000001"
+            <InputNumberComponent v-model="bond.flotationFeeRate" :label="$t('corporateBond.flotationFeeRate')" :min="0.0000001"
                                   :min-fraction-digits="7" suffix=" %" id="bondFlotationFeeRate"/>
             <small v-if="submitted && !bond.flotationFeeRate" class="text-red-500">
               Flotation Fee Rate is required.
@@ -398,7 +408,7 @@ export default {
           </div>
 
           <div class="w-full">
-            <InputNumberComponent v-model="bond.cavaliFeeRate" label="Cavali Fee Rate" :min="0.0000001"
+            <InputNumberComponent v-model="bond.cavaliFeeRate" :label="$t('corporateBond.cavaliFeeRate')" :min="0.0000001"
                                   :min-fraction-digits="7" suffix=" %" id="bondCavaliFeeRate"/>
             <small v-if="submitted && !bond.cavaliFeeRate" class="text-red-500">
               Cavali Fee Rate is required.
@@ -406,7 +416,7 @@ export default {
           </div>
 
           <div class="w-full">
-            <InputNumberComponent v-model="bond.annualInflationRate" label="Annual Inflation Rate" :min="0.0000001"
+            <InputNumberComponent v-model="bond.annualInflationRate" :label="$t('corporateBond.annualInflationRate')" :min="0.0000001"
                                   :min-fraction-digits="7" suffix=" %" id="bondAnnualInflationRate"/>
             <small v-if="submitted && !bond.annualInflationRate" class="text-red-500">
               Annual Inflation Rate is required.
@@ -419,14 +429,14 @@ export default {
     <div class="flex justify-center items-center gap-2">
       <pv-checkbox v-model="checked" inputId="conversion" name="conversion" binary/>
       <label for="conversion">
-        {{ currency === 'USD' ? 'Convertir a PEN' : 'Convertir a USD' }}
+        {{ currency === 'USD' ? $t('corporateBond.convertPEN') : $t('corporateBond.convertUSD') }}
       </label>
     </div>
 
     <div class="flex gap-6 w-full md:w-1/2">
       <pv-button
           icon="pi pi-times"
-          label="Cancel"
+          :label="$t('cancel')"
           type="button"
           class="text-black md:text-lg rounded-border p-4 border border-transparent flex items-center justify-center bg-primary-200 hover:bg-primary-100 font-medium flex-auto transition-colors"
           raised
@@ -434,8 +444,8 @@ export default {
       />
 
       <pv-button
-          :label="bond.id ? 'Update' : 'Create'"
-          :icon="bond.id ? 'pi pi-pencil' : 'pi pi-plus'"
+          :label="bond.id ? $t('update') : $t('save')"
+          :icon="bond.id ? 'pi pi-pencil' : 'pi pi-save'"
           type="button"
           class="font-bold md:text-xl rounded-border p-4 border border-transparent flex items-center justify-center bg-primary hover:bg-primary-emphasis text-primary-contrast flex-auto transition-colors"
           raised

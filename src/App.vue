@@ -12,7 +12,7 @@ import CorporateBondLayoutComponent from "./bondValuation/layouts/corporate-bond
 
 export default {
   name: "BondTech App",
-  components: { EmptyLayoutComponent, AuthenticationLayoutComponent },
+  components: { EmptyLayoutComponent, AuthenticationLayoutComponent, CorporateBondLayoutComponent },
   computed: {
     layout() {
       return this.$route.meta.layout || 'CorporateBondLayoutComponent' || 'AuthenticationLayoutComponent' || 'EmptyLayoutComponent';
@@ -20,13 +20,6 @@ export default {
   },
 }
 </script>
-
-<template>
-  <component :is="layout">
-    <router-view/>
-  </component>
-  <pv-toast />
-</template>
 
 <style scoped>
 

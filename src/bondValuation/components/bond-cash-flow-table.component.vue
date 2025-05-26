@@ -39,13 +39,13 @@ export default {
                  class="w-full">
     <pv-column field="scheduledDate" :sortable="true" style="width: 10%">
       <template #header>
-        <span class="font-bold text-wrap">{{ "Scheduled Date" }}</span>
+        <span class="font-bold text-wrap">{{ $t('cashFlow.scheduledDate') }}</span>
       </template>
     </pv-column>
     <pv-column field="idx" header="Nro" :sortable="true" style="width: 2%"/>
     <pv-column style="width: 10%">
       <template #header>
-        <span class="font-bold text-wrap">{{ "Annual Inflation Rate" }}</span>
+        <span class="font-bold text-wrap">{{ $t('cashFlow.annualInflationRate') }}</span>
       </template>
       <template #body="slotProps">
         {{ formatWithPercentage(slotProps.data.annualInflationRate) }}
@@ -53,7 +53,7 @@ export default {
     </pv-column>
     <pv-column style="width: 10%">
       <template #header>
-        <span class="font-bold text-wrap">{{ "Period Inflation Rate" }}</span>
+        <span class="font-bold text-wrap line-clamp-2">{{ $t('cashFlow.periodInflationRate') }}</span>
       </template>
       <template #body="slotProps">
         {{ formatWithPercentage(slotProps.data.periodInflationRate) }}
@@ -61,12 +61,12 @@ export default {
     </pv-column>
     <pv-column field="gracePeriodType" style="width: 10%">
       <template #header>
-        <span class="font-bold text-wrap">{{ "Grace Period" }}</span>
+        <span class="font-bold text-wrap line-clamp-2">{{ $t('cashFlow.gracePeriod') }}</span>
       </template>
     </pv-column>
     <pv-column style="width: 10%;">
       <template #header>
-        <span class="font-bold text-wrap">{{ "Bond Nominal" }}</span>
+        <span class="font-bold text-wrap">{{ $t('cashFlow.bond') }}</span>
       </template>
       <template #body="slotProps">
         <span :class="getAmountClass(slotProps.data.bondNominal)">
@@ -76,7 +76,7 @@ export default {
     </pv-column>
     <pv-column style="width: 10%;">
       <template #header>
-        <span class="font-bold text-wrap">{{ "Indexed Bond" }}</span>
+        <span class="font-bold text-wrap">{{ $t('cashFlow.indexedBond') }}</span>
       </template>
       <template #body="slotProps">
         <span :class="getAmountClass(slotProps.data.indexedBond)">
@@ -86,7 +86,7 @@ export default {
     </pv-column>
     <pv-column style="width: 10%;">
       <template #header>
-        <span class="font-bold text-wrap">{{ "Interest Coupon" }}</span>
+        <span class="font-bold text-wrap">{{ $t('cashFlow.coupon') }}</span>
       </template>
       <template #body="slotProps">
         <span :class="getAmountClass(slotProps.data.interestCoupon)">
@@ -96,7 +96,7 @@ export default {
     </pv-column>
     <pv-column style="width: 10%;">
       <template #header>
-        <span class="font-bold text-wrap">{{ "Payment" }}</span>
+        <span class="font-bold text-wrap">{{ $t('cashFlow.payment') }}</span>
       </template>
       <template #body="slotProps">
         <span :class="getAmountClass(slotProps.data.totalPayment)">
@@ -106,7 +106,7 @@ export default {
     </pv-column>
     <pv-column style="width: 10%;">
       <template #header>
-        <span class="font-bold text-wrap">{{ "Amortization" }}</span>
+        <span class="font-bold text-wrap">{{ $t('cashFlow.amortization') }}</span>
       </template>
       <template #body="slotProps">
         <span :class="getAmountClass(slotProps.data.amortization)">
@@ -116,7 +116,7 @@ export default {
     </pv-column>
     <pv-column style="width: 10%;">
       <template #header>
-        <span class="font-bold text-wrap">{{ "Premium" }}</span>
+        <span class="font-bold text-wrap">{{ $t('cashFlow.premium') }}</span>
       </template>
       <template #body="slotProps">
         <span :class="getAmountClass(slotProps.data.premium)">
@@ -126,7 +126,7 @@ export default {
     </pv-column>
     <pv-column style="width: 10%;">
       <template #header>
-        <span class="font-bold text-wrap">{{ "Shield" }}</span>
+        <span class="font-bold text-wrap">{{ $t('cashFlow.shield') }}</span>
       </template>
       <template #body="slotProps">
         <span :class="getAmountClass(slotProps.data.taxShield)">
@@ -136,7 +136,7 @@ export default {
     </pv-column>
     <pv-column style="width: 10%;">
       <template #header>
-        <span class="font-bold text-wrap">{{ "Issuer Flow" }}</span>
+        <span class="font-bold text-wrap">{{ $t('cashFlow.issuerFlow') }}</span>
       </template>
       <template #body="slotProps">
         <span :class="getAmountClass(slotProps.data.issuerFlow)">
@@ -146,7 +146,7 @@ export default {
     </pv-column>
     <pv-column style="width: 10%;">
       <template #header>
-        <span class="font-bold text-wrap" title="Issuer Flow with Shield">Flow w/ Shield</span>
+        <span class="font-bold text-wrap line-clamp-2">{{ $t('cashFlow.issuerFlowShield') }}</span>
       </template>
       <template #body="slotProps">
         <span :class="getAmountClass(slotProps.data.issuerFlowWithShield)">
@@ -156,7 +156,7 @@ export default {
     </pv-column>
     <pv-column style="width: 10%;">
       <template #header>
-        <span class="font-bold text-wrap">{{ "Bondholder Flow" }}</span>
+        <span class="font-bold text-wrap">{{ $t('cashFlow.bondholderFlow') }}</span>
       </template>
       <template #body="slotProps">
         <span :class="getAmountClass(slotProps.data.bondholderFlow)">
@@ -166,7 +166,7 @@ export default {
     </pv-column>
     <pv-column style="width: 10%;">
       <template #header>
-        <span class="font-bold text-wrap">{{ "Current Flow" }}</span>
+        <span class="font-bold text-wrap">{{ $t('cashFlow.currentFlow') }}</span>
       </template>
       <template #body="slotProps">
         <span :class="getAmountClass(slotProps.data.discountedFlow)">
@@ -176,7 +176,7 @@ export default {
     </pv-column>
     <pv-column style="width: 10%;">
       <template #header>
-        <span class="font-bold text-wrap">{{ "Flow by Period" }}</span>
+        <span class="font-bold text-wrap">{{ $t('cashFlow.flowByPeriod') }}</span>
       </template>
       <template #body="slotProps">
         <span :class="getAmountClass(slotProps.data.discountedFlowByPeriod)">
@@ -186,7 +186,7 @@ export default {
     </pv-column>
     <pv-column style="width: 10%;">
     <template #header>
-      <span class="font-bold text-wrap">{{ "Convexity Factor" }}</span>
+      <span class="font-bold text-wrap">{{ $t('cashFlow.convexityFactor') }}</span>
     </template>
     <template #body="slotProps">
         <span :class="getAmountClass(slotProps.data.convexityFactor)">

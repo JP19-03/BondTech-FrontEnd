@@ -52,7 +52,8 @@ const router = createRouter({
                     return {name: 'sign-in'};
                 }
                 return {name: 'home'};
-         }
+            }
+        }
     ]
 });
 

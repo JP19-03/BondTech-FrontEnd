@@ -56,18 +56,18 @@ export default {
       <div class="flex  flex-col md:flex-row justify-between  items-center w-full gap-4">
         <pv-button type="button"
                    class="w-full md:w-1/8 bg-primary hover:bg-primary-emphasis text-white uppercase font-bold"
-                   icon="pi pi-filter-slash" label="Clear" @click="clearFilter()" raised/>
+                   icon="pi pi-filter-slash" :label="$t('home.clear')" @click="clearFilter()" raised/>
         <pv-icon-field class="w-full flex justify-center">
           <pv-icon-field>
             <pv-input-icon>
               <i class="pi pi-search"/>
             </pv-input-icon>
-            <pv-input-text v-model="filters['global'].value" placeholder="Keyword Search" class="w-full"/>
+            <pv-input-text v-model="filters['global'].value" :placeholder="$t('home.search')" class="w-full"/>
           </pv-icon-field>
         </pv-icon-field>
         <pv-button icon="pi pi-refresh"
                    class="w-full  md:w-1/8 bg-primary hover:bg-primary-emphasis text-white uppercase font-bold" raised
-                   label="Refresh" @click="refreshData"/>
+                   :label="$t('home.refresh')" @click="refreshData"/>
       </div>
     </template>
     <template #empty> No data found.</template>

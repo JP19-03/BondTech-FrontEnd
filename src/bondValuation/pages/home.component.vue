@@ -64,9 +64,15 @@ export default {
 <template>
   <div class="flex flex-col justify-center p-6 gap-4">
     <div class="flex justify-between items-center w-full gap-4">
-      <h1 class="text-xl md:text-4xl font-bold text-black text-nowrap">Registered Bonds</h1>
-      <pv-button icon="pi pi-plus" label="New Bond" type="button" class="w-sm bg-primary hover:bg-primary-emphasis text-white uppercase font-bold"
-                 raised @click="newBond" />
+      <h1 class="text-xl md:text-4xl font-bold text-black text-nowrap">{{ $t('home.registeredBonds') }}</h1>
+      <pv-button
+        icon="pi pi-plus"
+        :label="$t('home.newBond')"
+        type="button"
+        class="w-sm bg-primary hover:bg-primary-emphasis text-white uppercase font-bold"
+        raised
+        @click="newBond"
+      />
     </div>
     <bond-results-table :bond-results="results" @refresh="handleRefresh" class="bg-white"/>
     <home-chart :data="results" />
