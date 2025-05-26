@@ -43,6 +43,7 @@ export default {
             });
             this.resetForm();
             localStorage.setItem("userId", response.data.id);
+            localStorage.setItem("username", response.data.username);
             setTimeout(() => {
               this.$router.push("/home");
             }, 2000);
