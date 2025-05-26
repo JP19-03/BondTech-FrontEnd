@@ -7,7 +7,12 @@
     "newBond": "New Bond",
     "clear": "Clear",
     "search": "Search",
-    "refresh": "Refresh"
+    "refresh": "Refresh",
+    "date": "Date",
+    "name": "Name",
+    "tceaIssuer": "TCEA Issuer",
+    "tceaIssuerWithShield": "TCEA Issuer with Shield",
+    "treaBondholder": "TCEA Bondholder"
   },
   "corporateBond": {
     "createBond": "Create Bond",

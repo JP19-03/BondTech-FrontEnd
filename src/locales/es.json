@@ -7,7 +7,12 @@
     "newBond": "Nuevo Bono",
     "clear": "Limpiar",
     "search": "Buscar",
-    "refresh": "Actualizar"
+    "refresh": "Actualizar",
+    "date": "Fecha",
+    "name": "Nombre",
+    "tceaIssuer": "TCEA Emisor",
+    "tceaIssuerWithShield": "TCEA Emisor con Escudo",
+    "treaBondholder": "TREA Bonista"
   },
   "corporateBond": {
     "createBond": "Crear Bono",

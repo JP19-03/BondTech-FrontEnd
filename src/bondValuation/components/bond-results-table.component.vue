@@ -55,7 +55,7 @@ export default {
     <template #header>
       <div class="flex  flex-col md:flex-row justify-between  items-center w-full gap-4">
         <pv-button type="button"
-                   class="w-full md:w-1/8 bg-primary hover:bg-primary-emphasis text-white uppercase font-bold"
+                   class="w-full md:w-1/5 bg-primary hover:bg-primary-emphasis text-white uppercase font-bold"
                    icon="pi pi-filter-slash" :label="$t('home.clear')" @click="clearFilter()" raised/>
         <pv-icon-field class="w-full flex justify-center">
           <pv-icon-field>
@@ -66,28 +66,44 @@ export default {
           </pv-icon-field>
         </pv-icon-field>
         <pv-button icon="pi pi-refresh"
-                   class="w-full  md:w-1/8 bg-primary hover:bg-primary-emphasis text-white uppercase font-bold" raised
+                   class="w-full  md:w-1/5 bg-primary hover:bg-primary-emphasis text-white uppercase font-bold" raised
                    :label="$t('home.refresh')" @click="refreshData"/>
       </div>
     </template>
     <template #empty> No data found.</template>
-    <pv-column field="createdAt" header="Date" :sortable="true " style="width: 20%">
+    <pv-column field="createdAt" :sortable="true " style="width: 20%">
+      <template #header>
+        <span class="font-bold">{{ $t('home.date') }}</span>
+      </template>
       <template #body="slotProps">
         {{ formatDate(slotProps.data.createdAt) }}
       </template>
     </pv-column>
-    <pv-column field="name" header="Name" style="width: 20%"/>
-    <pv-column field="tceaIssuer" header="TCEA Issuer" style="width: 20%">
+    <pv-column field="name" style="width: 20%">
+      <template #header>
+        <span class="font-bold">{{ $t('home.name') }}</span>
+      </template>
+    </pv-column>
+    <pv-column style="width: 20%">
+      <template #header>
+        <span class="font-bold line-clamp-2 text-wrap">{{ $t('home.tceaIssuer') }}</span>
+      </template>
       <template #body="slotProps">
         {{ formatWithPercentage(slotProps.data.tceaIssuer) }}
       </template>
     </pv-column>
-    <pv-column field="tceaIssuerWithTaxShield" header="TCEA Issuer With Tax Shield" style="width: 20%">
+    <pv-column style="width: 20%">
+      <template #header>
+        <span class="font-bold line-clamp-2 text-wrap">{{ $t('home.tceaIssuerWithShield') }}</span>
+      </template>
       <template #body="slotProps">
         {{ formatWithPercentage(slotProps.data.tceaIssuerWithTaxShield) }}
       </template>
     </pv-column>
-    <pv-column field="treaBondHolder" header="TREA Bond Holder" style="width: 20%">
+    <pv-column style="width: 20%">
+      <template #header>
+        <span class="font-bold line-clamp-2 text-wrap">{{ $t('home.treaBondholder') }}</span>
+      </template>
       <template #body="slotProps">
         {{ formatWithPercentage(slotProps.data.treaBondHolder) }}
       </template>
