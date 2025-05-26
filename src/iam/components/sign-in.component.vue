@@ -44,8 +44,8 @@ export default {
             this.resetForm();
             localStorage.setItem("userId", response.data.id);
             setTimeout(() => {
-              //this.$router.push("/home");
-            }, 4000);
+              this.$router.push("/home");
+            }, 2000);
           } else {
             this.$toast.add({
               severity: "error",
