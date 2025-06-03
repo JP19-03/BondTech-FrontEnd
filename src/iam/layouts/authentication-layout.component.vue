@@ -9,8 +9,8 @@ export default {
     <main class="w-full">
       <slot />
     </main>
-    <div class="hidden md:flex w-full h-full flex-col items-center justify-center bg-gray-100">
-      <img src="../../assets/images/money.png" alt="Logo" class="w-full h-full md:max-h-[1000px] object-fill" />
+    <div class="hidden md:flex w-full h-full max-h-[855px] flex-col items-center justify-center bg-gray-100">
+      <img src="../../assets/images/money.png" alt="Logo" class="w-full h-full object-cover" />
     </div>
   </div>
 </template>
