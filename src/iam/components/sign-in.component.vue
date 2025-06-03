@@ -100,7 +100,7 @@ export default {
 
         <p class="text-center mt-4 bg-none">
           Don't have an account?
-          <router-link to="/sign-up" class="text-primary font-bold">Sing Up</router-link>
+          <router-link to="/sign-up" class="text-primary font-bold">Sign Up</router-link>
         </p>
 
       </form>
