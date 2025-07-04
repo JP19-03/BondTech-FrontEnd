@@ -5,12 +5,19 @@ export default {
 </script>
 
 <template>
-  <div class="flex flex-col md:grid md:grid-cols-2 min-h-screen">
+  <div class="flex flex-col md:grid md:grid-cols-2 h-screen">
+    <!-- Contenido principal -->
     <main class="w-full">
-      <slot />
+      <slot/>
     </main>
-    <div class="hidden md:flex w-full h-full max-h-[855px] flex-col items-center justify-center bg-gray-100">
-      <img src="../../assets/images/money.png" alt="Logo" class="w-full h-full object-cover" />
+
+    <!-- Contenedor de imagen -->
+    <div class="hidden md:flex w-full h-full items-center justify-center bg-gray-100">
+      <img
+          src="../../assets/images/money.png"
+          alt="Logo"
+          class="w-full h-full lg:max-h-screen object-cover"
+      />
     </div>
   </div>
 </template>

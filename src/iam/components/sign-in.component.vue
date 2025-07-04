@@ -73,7 +73,7 @@ export default {
 <template>
   <div class="flex flex-col justify-center items-center gap-3 min-h-screen p-2 mx-4">
     <img src="../../assets/images/bontech_logo.png" alt="Bondtech Logo" class="h-[250px] object-fill" />
-    <div class="w-sm p-3 lg:p-5 border-2 rounded-sm border-gray-200 border-solid shadow-md bg-white">
+    <div class="w-sm md:w-full max-w-lg p-3 lg:p-5 border-2 rounded-sm border-gray-200 border-solid shadow-md bg-white">
       <h1 class="text-center text-2xl font-bold text-primary !mb-8">Log In</h1>
 
       <form @submit.prevent="submitForm" class="flex flex-col gap-4">
