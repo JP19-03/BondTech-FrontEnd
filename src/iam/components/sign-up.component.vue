@@ -104,7 +104,7 @@ export default {
         <div class="grid grid-cols-1 gap-3 lg:grid-cols-2">
           <div class="mb-4">
             <pv-float-label>
-              <pv-password id="password" v-model="form.password" toggleMask class="w-full"/>
+              <pv-password id="password" v-model="form.password" toggleMask class="w-full" input-class="w-full"/>
               <label for="password">Password</label>
             </pv-float-label>
             <small v-if="submitted && !form.password" class="text-red-500">Password is required.</small>
@@ -112,7 +112,7 @@ export default {
 
           <div class="mb-4">
             <pv-float-label>
-              <pv-password id="confirmPassword" v-model="form.confirmPassword" toggleMask class="w-full"/>
+              <pv-password id="confirmPassword" v-model="form.confirmPassword" toggleMask class="w-full" input-class="w-full"/>
               <label for="confirmPassword">Confirm Password</label>
             </pv-float-label>
             <small v-if="submitted && form.confirmPassword !== form.password" class="text-red-500">
