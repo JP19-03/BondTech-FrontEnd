@@ -168,7 +168,7 @@ export default {
 
       this.configBeforeCreate();
 
-      this.bond.userId = 1;
+      this.bond.userId = Number(localStorage.getItem('userId'));
 
       this.submitted = true;
 
