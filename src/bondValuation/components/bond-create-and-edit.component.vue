@@ -56,7 +56,6 @@ export default {
           this.bond.name &&
           this.bond.faceValue &&
           this.bond.marketValue &&
-          this.bond.marketValue > this.bond.faceValue &&
           this.bond.exchangeRate &&
           this.bond.numberOfYears &&
           this.bond.daysPerYear &&
@@ -256,9 +255,6 @@ export default {
                                     :currency="currency"
                                     id="bondMarketValue"/>
               <small v-if="submitted && !bond.marketValue" class="text-red-500">Market Value is required.</small>
-              <small v-if="submitted && bond.marketValue <= bond.faceValue" class="text-red-500">
-                Market Value must be greater than Face Value.
-              </small>
             </div>
           </div>
 
